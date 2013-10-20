@@ -1,0 +1,108 @@
+/** CSS Reset */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; vertical-align: baseline; background: transparent; border: 0; }
+body { line-height: 1; }
+header, nav, footer, article, section { display: block; margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6 { clear: both; font-weight: bold; }
+ul { list-style: none; }
+blockquote { quotes: none; }
+blockquote:before, blockquote:after { content: ''; content: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+a img { border: none; }
+
+/** Base typography */
+html { font-size: 62.5%; } // Allows us to define rems in base-10
+body { font-family: $fonts_body; @include font-size(14); line-height: 1.5em; color: $body_text_color; }
+header, footer, h1, h2, h3, h4, h5, h6, #site-tagline { font-family: $fonts_headings; }
+h1, h2, h3, h4, h5, h6 { text-rendering: optimizelegibility; }
+h1, h2, h3 { @include x-rem(margin-bottom, 15); color: #222; }
+h2 { @include font-size(26.5); }
+h1, ol, ul, dl, p, blockquote, .table-wrap { margin-bottom: $block_margin_bottom; }
+ol, ul { margin-left: 1.4em; }
+blockquote { @include x-rem(padding-left, 15); border-left: 5px solid #eee; }
+a { color: #dd3735;
+  &:link, &:visited, &:hover, &:focus, &:active { text-decoration: none; }
+  &:hover, &:focus, &:active { color: #f95856; }
+}
+img { display: block; max-width: 100%; margin: 0 auto; }
+
+/** Utility classes */
+.screen-reader-text { position: absolute; left: -99999em; }
+.clearfix { zoom: 1; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clear, .clearfix:after { clear: both; }
+
+/** Structure */
+body { padding: 0 3%; }
+#wrapper { min-width: 320px; max-width: 1200px; margin: 0 auto; }
+
+/** Header and footer */
+#site-logo { float: left; }
+#user-nav { float: right;
+  $nav_padding: .5em;
+  li { display: inline-block; padding-right: $nav_padding;
+    + li { padding-left: $nav_padding; border-left: 1px solid; }
+    &:last-child { padding-right: 0; }
+  }
+  .welcome { font-weight: bold; }
+}
+
+/** Content styles */
+#content { clear: both; }
+
+#contestant-list { margin-left: 0;
+  > li { margin-bottom: $block_margin_bottom; }
+  .amounts {
+    ul { margin-left: 0; }
+    li { float: left; }
+  }
+  .bar-graph { position: relative; width: 2em; height: 8em;
+    span { position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 100%; text-indent: -9999%; background: blue; }
+  }
+  table { clear: both;
+    img { display: inline; vertical-align: middle; }
+  }
+}
+body.js {
+  #contestant-list {
+    .amounts { display: none; }
+  }
+}
+
+/* Forms */
+input, textarea, select { display: block; width: 100%; }
+input[type="submit"], button, .button { float: right; width: auto; }
+label { font-weight: bold;
+  &.required:after { content: '*'; padding-left: .25em; color: $error_color; }
+}
+
+.form-list, .form-submit { max-width: 500px; overflow: hidden; margin-left: 0; }
+
+/* Flashes */
+.flash { display: block; margin: 0 0 $block_margin_bottom; padding: .5em 1em; color: $notice_color; background: $notice_bg_color; border: 1px solid; border-radius: $input_border_radius;
+  &.success { color: $success_color; background: $success_bg_color; }
+  &.error { color: $error_color; background: $error_bg_color; }
+}
+
+/** Media queries */
+@media ( min-width: 540px ) {
+  .col { float: left; width: 48%;
+    + .col { margin-left: 4%; }
+  }
+
+  #contestant-list {
+    > li { float: left; width: 48%; margin-left: 4%;
+      &:nth-child(2n+1) { clear: left; margin-left: 0; }
+    }
+  }
+}
+
+@media ( min-width: 980px ) {
+  #contestant-list {
+    > li { float: left; width: 32%; margin-left: 3%;
+      &:nth-child(2n+1) { clear: none; }
+      &:nth-child(3n+1) { clear: left; margin-left: 0; }
+    }
+  }
+}

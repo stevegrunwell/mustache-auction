@@ -1,0 +1,46 @@
+/** Variables */
+
+// Measurements
+$container_padding: 3%;
+$footer_height: 90px;
+$input_border_radius: 4px;
+$block_margin_bottom: 1.8em;
+
+$homepage_benefit_counter_size: 60px;
+
+// Colors
+$body_text_color: #284445;
+$footer_background: #d1eaec;
+
+$notice_color: #9f6000;
+$notice_bg_color: #feefb3;
+$success_color: #4f8a10;
+$success_bg_color: #dff2bf;
+$error_color: #d8000c;
+$error_bg_color: #ffbaba;
+
+// Font stacks
+$fonts_body: 'Helvetica Neue', sans-serif;
+$fonts_headings: Bariol, 'Helvetica Neue', sans-serif;
+
+/** Mixins */
+
+/**
+ * Provide both pixel- and rem-based font-sizes
+ * @param int $sizeValue The desired font-size in pixels *without* a unit (e.g. `@include font-size(13);`)
+ * @link http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ */
+@mixin font-size( $sizeValue: 1.6 ) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+/**
+ * Provide any value in both pixel- and rem-based measurements
+ * @param str $property The CSS property to define
+ * @param int $value The pixel-based value for the measurement
+ */
+@mixin x-rem( $property, $value ) {
+  #{$property}: $value + px;
+  #{$property}: ($value / 10) + rem;
+}
