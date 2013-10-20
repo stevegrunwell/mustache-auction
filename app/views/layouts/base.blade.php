@@ -17,5 +17,11 @@
       @yield( 'body' )
     </div><!-- #content -->
   </div><!-- #wrapper -->
+
+  @include( 'layouts.footer' )
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{ asset( 'js/jquery.modal.min.js?v=0.5.4' ) }}"></script>
+<script src="{{ asset( 'js/application.js' ) }}"></script>
 </body>
 </html>

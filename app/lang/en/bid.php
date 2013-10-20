@@ -11,7 +11,7 @@ return array(
   'create_form_title' => 'Make a donation',
   'create_form_title_with_name' => 'Make a donation to :contestant',
   'create_form_submit' => 'Make donation',
-  'bid_button' => 'Donate',
+  'bid_button_with_name' => 'Donate',
 
   // Messaging
   'msg_bid_successfully' => 'Thank you for your donation!',

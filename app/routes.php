@@ -20,7 +20,11 @@ Route::get( 'login', 'UserController@showLogin' );
 Route::post( 'login', 'UserController@login' );
 Route::get( 'logout', 'UserController@logout' );
 
+// Donations
 Route::get( 'donate', 'BidController@create' );
+
+// Static pages
+Route::get( 'about', 'HomeController@showAbout' );
 
 // Everything in here requires the user to be logged in
 Route::group( [ 'before' => 'auth|ssl' ], function () {

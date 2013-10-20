@@ -48,7 +48,7 @@
           @endforeach
           </tbody>
         </table>
-        {{ link_to_action( 'BidController@create', trans( 'bid.bid_button' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'btn' ] ) }}
+        {{ link_to_action( 'BidController@create', trans( 'bid.bid_button_with_name' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'donate-link btn' ] ) }}
       </div><!-- .amounts -->
 
     @else
