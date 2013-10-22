@@ -8,6 +8,7 @@
 <title>@yield( 'title' ) . ' | ' . trans( 'global.appname' )</title>
 @show
 <link href="{{ asset( 'css/app.css' ) }}" type="text/css" rel="stylesheet" media="all" />
+<script src="{{ asset( 'js/modernizr.min.js' ) }}"></script>
 </head>
 <body>
   <div id="wrapper">

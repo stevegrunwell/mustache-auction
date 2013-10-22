@@ -9,15 +9,20 @@
 
     <li>
       <h2>{{ $contestant->name }}</h2>
+    @if ( $contestant->title )
+      <p class="title">{{ $contestant->title }}</p>
+    @endif
       <p class="amount">{{ trans( 'contestant.amount_raised', [ 'amount' => BidHelper::format_amount( $contestant->total_raised ) ] ) }}</p>
+      {{ link_to_action( 'BidController@create', trans( 'bid.bid_button_with_name' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'donate-link btn' ] ) }}
+
       <div class="amounts">
       @if ( $contestant->total_raised )
 
         <ul>
         @foreach ( $contestant->mustaches as $mustache )
 
-          <li>
-            {{ BidHelper::bar_graph( $mustache['percentage'] ) }}
+          <li style="width: {{ 100 / count( $contestant->mustaches ) }}%;">
+            {{ BidHelper::bar_graph( $mustache['percentage'], $mustache['total'] ) }}
             <p>
               <img src="{{ $mustache['image'] }}" alt="{{ $mustache['name'] }}" title="{{ $mustache['name'] }}" />
               <span class="percentage">{{ BidHelper::format_percentage( $mustache['percentage'] ) }}</span>
@@ -32,8 +37,8 @@
           <thead>
             <tr>
               <th>{{ trans( 'mustache.table_header_mustache' ) }}</th>
-              <th>{{ trans( 'mustache.table_header_amount' ) }}</th>
-              <th>{{ trans( 'mustache.table_header_percentage' ) }}</th>
+              <th class="amount">{{ trans( 'mustache.table_header_amount' ) }}</th>
+              <th class="percentage">{{ trans( 'mustache.table_header_percentage' ) }}</th>
             </tr>
           </thead>
           <tbody>
@@ -41,14 +46,13 @@
 
             <tr>
               <td><img src="{{ $mustache['image'] }}" alt="" /> {{ $mustache['name'] }}</td>
-              <td>{{ BidHelper::format_amount( $mustache['total'] ) }}</td>
-              <td>{{ BidHelper::format_percentage( $mustache['percentage'] ) }}</td>
+              <td class="amount">{{ BidHelper::format_amount( $mustache['total'] ) }}</td>
+              <td class="percentage">{{ BidHelper::format_percentage( $mustache['percentage'] ) }}</td>
             </tr>
 
           @endforeach
           </tbody>
         </table>
-        {{ link_to_action( 'BidController@create', trans( 'bid.bid_button_with_name' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'donate-link btn' ] ) }}
       </div><!-- .amounts -->
 
     @else

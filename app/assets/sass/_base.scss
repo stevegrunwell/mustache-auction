@@ -35,14 +35,15 @@ img { display: block; max-width: 100%; margin: 0 auto; }
 
 /** Structure */
 body { padding: 0 3%; }
-#wrapper { min-width: 320px; max-width: 1200px; margin: 0 auto; }
+#wrapper, footer { clear: both; min-width: 320px; max-width: 1200px; margin: 0 auto; }
 
 /** Header and footer */
-#site-logo { float: left; }
-#user-nav, #footer-nav {
+header { overflow: hidden; padding: 1em 0 3em; }
+#site-logo { float: left; max-width: 300px; margin-bottom: 1em; }
+#user-nav, #footer-nav { text-transform: uppercase;
   $nav_padding: .5em;
   ul { margin-left: 0; }
-  li { display: inline-block; padding-right: $nav_padding;
+  li { float: left; display: inline-block; padding-right: $nav_padding;
     + li { padding-left: $nav_padding; border-left: 1px solid; }
     &:last-child { padding-right: 0; }
   }
@@ -51,26 +52,42 @@ body { padding: 0 3%; }
   .welcome { font-weight: bold; }
 }
 
+#footer-nav { overflow: hidden; margin-top: 2em; padding: .5em 0 1em; border-top: 2px solid #000; }
+
 /** Content styles */
 #content { clear: both; }
 
 #contestant-list { margin-left: 0;
   > li { margin-bottom: $block_margin_bottom; }
+  .title { font-style: italic; color: #666; }
   .amounts {
     ul { margin-left: 0; }
-    li { float: left; }
+    li { float: left; padding: 0 2%; text-align: center; }
+    img { width: 60%; margin: 0 auto; }
+    table { clear: both;
+      img { display: inline-block; max-width: 10%; margin-right: 4%; vertical-align: middle; }
+    }
   }
-  .bar-graph { position: relative; width: 2em; height: 8em;
+  .bar-graph { position: relative; width: 100%; height: 8em; margin-bottom: .5em;
     span { position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 100%; text-indent: -9999%; background: blue; }
-  }
-  table { clear: both;
-    img { display: inline; vertical-align: middle; }
   }
 }
 body.js {
   #contestant-list {
     .amounts { display: none; }
   }
+}
+
+/* Tables */
+table {
+  th, td { padding: .3em .75em; text-align: left; }
+  th {
+    &.amount, &.percentage { text-align: center; }
+  }
+  td { border-top: 1px solid #ccc;
+    &.amount, &.percentage { text-align: right; }
+  }
+  tbody tr:first-child td { border-color: #000; }
 }
 
 /* Forms */
@@ -81,6 +98,20 @@ label { font-weight: bold;
 }
 
 .form-list, .form-submit { max-width: 500px; overflow: hidden; margin-left: 0; }
+
+.mustache-list { display: none; }
+html.js {
+  .mustache-list { display: block; max-width: 500px; margin-left: 0; text-align: center;
+    li { float: left; width: 25%;
+      &:nth-child(4n+1) { clear: left; }
+      a { display: block; padding: 15%;
+        &.active { box-shadow: 0 0 6px #aaa; }
+      }
+    }
+    img { margin-bottom: .5em; }
+  }
+  .mustache-id { display: none; }
+}
 
 /* Flashes */
 .flash { display: block; margin: 0 0 $block_margin_bottom; padding: .5em 1em; color: $notice_color; background: $notice_bg_color; border: 1px solid; border-radius: $input_border_radius;
@@ -94,55 +125,10 @@ label { font-weight: bold;
   .form-submit:last-child { margin-bottom: 0; }
 }
 
-
-
-/*.modal {
-  display: none;
-  width: 400px;
-  background: #fff;
-  padding: 15px 30px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  -ms-border-radius: 8px;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 0 10px #000;
-  -moz-box-shadow: 0 0 10px #000;
-  -o-box-shadow: 0 0 10px #000;
-  -ms-box-shadow: 0 0 10px #000;
-  box-shadow: 0 0 10px #000;
-}
-
-.modal a.close-modal {
-  position: absolute;
-  top: -12.5px;
-  right: -12.5px;
-  display: block;
-  width: 30px;
-  height: 30px;
-  text-indent: -9999px;
-  background: url(close.png) no-repeat 0 0;
-}
-
-.modal-spinner {
-  display: none;
-  width: 64px;
-  height: 64px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-right: -32px;
-  margin-top: -32px;
-  background: url(spinner.gif) #111 no-repeat center center;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  -ms-border-radius: 8px;
-  border-radius: 8px;
-}*/
-
 /** Media queries */
 @media ( min-width: 540px ) {
+  #site-logo { margin-right: 2em; }
+
   .col { float: left; width: 48%;
     + .col { margin-left: 4%; }
   }

@@ -7,9 +7,10 @@ class BidHelper {
    * @param float $percentage
    * @return str
    */
-  public static function bar_graph( $percentage ) {
-    return sprintf( '<div class="bar-graph"><span style="max-height: %f%%;">%s</span></div>',
+  public static function bar_graph( $percentage, $amount=0 ) {
+    return sprintf( '<div class="bar-graph"><span style="max-height: %f%%;" title="%s">%s</span></div>',
       $percentage * 100,
+      ( $amount ? self::format_amount( $amount ) : '' ),
       self::format_percentage( $percentage )
     );
   }

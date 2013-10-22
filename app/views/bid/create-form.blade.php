@@ -2,12 +2,25 @@
 
   @include( 'messages.errors' )
 
+  <ul class="mustache-list clearfix">
+  @foreach ( Mustache::all() as $mustache )
+
+    <li>
+      <a href="#" data-mustache-id="{{ $mustache->id }}" role="button">
+        <img src="{{ $mustache->image }}" alt="" />
+        {{ $mustache->name }}
+      </a>
+    </li>
+
+  @endforeach
+  </ul>
+
   <ul class="form-list">
     <li{{ ( $contestant ? ' style="display: none;"' : '' ) }}>
       {{ Form::label( 'contestant_id', trans( 'bid.contestant_id' ), [ 'class' => 'required' ] ) }}
       {{ Form::select( 'contestant_id', Contestant::getContestantsAsArray( true ), $contestant->id ) }}
     </li>
-    <li>
+    <li class="mustache-id">
       {{ Form::label( 'mustache_id', trans( 'bid.mustache_id' ), [ 'class' => 'required' ] ) }}
       {{ Form::select( 'mustache_id', Mustache::getMustachesAsArray( true ) ) }}
     </li>

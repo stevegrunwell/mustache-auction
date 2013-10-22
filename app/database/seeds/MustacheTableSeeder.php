@@ -12,12 +12,39 @@ class MustacheTableSeeder extends Seeder
       'image' => 'growers-choice.png'
     ));
     Mustache::create( array(
+      'name' => 'The Chevron',
+      'description' => '',
+      'image' => 'chevron.png'
+    ));
+    Mustache::create( array(
+      'name' => 'The English',
+      'description' => '',
+      'image' => 'english.png'
+    ));
+    Mustache::create( array(
+      'name' => 'The Fu Manchu',
+      'description' => '',
+      'image' => 'fumanchu.png'
+    ));
+    Mustache::create( array(
       'name' => 'The Handlebar',
+      'description' => '',
       'image' => 'handlebar.png'
     ));
     Mustache::create( array(
-      'name' => 'The Fu-man Chu',
-      'image' => 'fumanchu.png'
+      'name' => 'The Horseshoe',
+      'description' => '',
+      'image' => 'horseshoe.png'
+    ));
+    Mustache::create( array(
+      'name' => 'The Pencil',
+      'description' => '',
+      'image' => 'pencil.png'
+    ));
+    Mustache::create( array(
+      'name' => 'The Walrus',
+      'description' => '',
+      'image' => 'walrus.png'
     ));
   }
 

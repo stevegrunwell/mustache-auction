@@ -1,5 +1,5 @@
 <header role="masthead">
-  <a href="{{ action( 'HomeController@index' ) }}" id="site-logo">{{ trans( 'global.appname' ) }}</a>
+  <a href="{{ action( 'HomeController@index' ) }}" id="site-logo"><img src="{{ asset( 'img/logo.png' ) }}" alt="{{ trans( 'global.appname' ) }}" /></a>
   <nav id="user-nav">
     <ul>
     @if ( Auth::check() )

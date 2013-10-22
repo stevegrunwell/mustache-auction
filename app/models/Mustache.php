@@ -6,6 +6,10 @@ class Mustache extends Eloquent {
 
   protected $table = 'mustaches';
 
+  public function getImageAttribute() {
+    return asset( sprintf( 'img/mustache/%s', $this->attributes['image'] ) );
+  }
+
   /**
    * Return all mustache styles in an array ( id => name )
    * @param bool $with_empty Include a "Select..."-type option at the beginning?
