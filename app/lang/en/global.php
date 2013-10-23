@@ -6,5 +6,7 @@ return array(
 
   // Navigation
   'nav_about' => 'About',
+  'nav_privacy_policy' => 'Privacy Policy',
+  'nav_terms' => 'Terms of Service',
 
 );

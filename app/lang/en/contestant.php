@@ -11,6 +11,7 @@ return array(
   // Display
   'show_title' => ':first_name :last_name',
   'stats_title' => 'Statistics for :first_name :last_name',
+  'stats_title_short' => 'Current standings',
   'amount_raised' => ':amount raised so far',
   'no_bids' => 'Nobody has bid on :contestant\'s mustache yet, <a href=":link" class="donate-link btn">why not be the first?</a>',
 

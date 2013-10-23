@@ -8,14 +8,14 @@ return array(
   'amount' => 'Amount (USD)',
 
   // Forms
-  'create_form_title' => 'Make a donation',
-  'create_form_title_with_name' => 'Make a donation to :contestant',
-  'create_form_submit' => 'Make donation',
-  'bid_button_with_name' => 'Donate',
+  'create_form_title' => 'Make a pledge',
+  'create_form_title_with_name' => 'Make a pledge to :contestant',
+  'create_form_submit' => 'Make pledge',
+  'bid_button' => 'Make a pledge',
 
   // Messaging
-  'msg_bid_successfully' => 'Thank you for your donation!',
-  'msg_bid_error' => 'Something went wrong saving your donation, please try again!',
+  'msg_bid_successfully' => 'Thank you for your pledge!',
+  'msg_bid_error' => 'Something went wrong saving your pledge, please try again!',
 
   // Formats
   'amount_format' => '$:amount',
@@ -27,6 +27,6 @@ return array(
   'table_amount' => 'Amount',
   'table_contestant' => "Mo' Bro",
   'table_mustache' => "Mo'",
-  'history_title' => 'Donation history',
+  'history_title' => 'Pledge history',
 
 );

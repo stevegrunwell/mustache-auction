@@ -18,7 +18,7 @@ header, footer, h1, h2, h3, h4, h5, h6, #site-tagline { font-family: $fonts_head
 h1, h2, h3, h4, h5, h6 { line-height: 1.4em; text-rendering: optimizelegibility; }
 h1, h2, h3 { @include x-rem(margin-bottom, 15); color: #222; }
 h2 { @include font-size(26.5); }
-h1, ol, ul, dl, p, blockquote, .table-wrap { margin-bottom: $block_margin_bottom; }
+ol, ul, dl, p, blockquote, .table-wrap { margin-bottom: $block_margin_bottom; }
 ol, ul { margin-left: 1.4em; }
 blockquote { @include x-rem(padding-left, 15); border-left: 5px solid #eee; }
 a { color: $link_color;
@@ -116,11 +116,12 @@ html.js {
   .mustache-id { display: none; }
 }
 
-.actions { margin-left: 0; font-family: $fonts_headings; font-size: 1.1em; font-weight: bold;
+.actions { margin-left: 0;
   li { display: inline-block; margin-right: 2em;
     &:last-child { margin-right: 0; }
   }
 }
+.btn { font-family: $fonts_headings; font-size: 1.1em; font-weight: bold; }
 
 /* Flashes */
 .flash { display: block; margin: 0 0 $block_margin_bottom; padding: .5em 1em; color: $notice_color; background: $notice_bg_color; border: 1px solid; border-radius: $input_border_radius;

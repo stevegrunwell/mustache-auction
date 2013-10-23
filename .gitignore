@@ -5,3 +5,8 @@ composer.lock
 .DS_Store
 
 *.sass-cache*
+
+# Environment-specific config
+/app/config/development/*
+/app/config/staging/*
+/app/config/production/*
