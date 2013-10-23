@@ -64,7 +64,7 @@
           <tr>
             <td><time title="{{ $bid->created_at_timestamp }}">{{ $bid->created_at }}</time></td>
             <td>{{ BidHelper::format_amount( $bid->amount ) }}</td>
-            <td>{{ $bid->contestant->name }}</td>
+            <td><a href="{{ $bid->contestant->movember_url }}" rel="external">{{ $bid->contestant->name }}</a></td>
             <td>{{ $bid->mustache->name }}</td>
           </tr>
 
