@@ -9,4 +9,10 @@ return array(
   'privacy_policy_url' => false,
   'terms_url' => false,
 
+  /*
+    Enable Google Analytics tracking by putting the profile ID and tracking domain here:
+  */
+  'ga_profile_id' => false,
+  'ga_tracking_domain' => false,
+
 );
