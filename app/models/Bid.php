@@ -34,7 +34,7 @@ class Bid extends Eloquent {
     return array(
       'contestant_id' => 'required|exists:contestants,id',
       'mustache_id' => 'required|exists:mustaches,id',
-      'amount' => 'required|numeric'
+      'amount' => 'required|numeric|min:0.01'
     );
   }
 }

@@ -8,7 +8,11 @@ class BidController extends BaseController {
   }
 
   public function store() {
-    $validation = Validator::make( Input::get(), Bid::getValidationRules( 'create' ) );
+    $input = Input::get();
+    if ( isset( $input['amount'] ) ) {
+      $input['amount'] = floatval( preg_replace( '/[^0-9\.]/', '', $input['amount'] ) );
+    }
+    $validation = Validator::make( $input, Bid::getValidationRules( 'create' ) );
     if ( $validation->fails() ) {
       return Redirect::back()->withErrors( $validation )->withInput();
     }
@@ -16,9 +20,9 @@ class BidController extends BaseController {
     // Build the Bid object
     $bid = new Bid;
     $bid->user_id = Auth::user()->id;
-    $bid->contestant_id = Input::get( 'contestant_id' );
-    $bid->mustache_id = Input::get( 'mustache_id' );
-    $bid->amount = Input::get( 'amount' );
+    $bid->contestant_id = $input['contestant_id'];
+    $bid->mustache_id = $input['mustache_id'];
+    $bid->amount = $input['amount'];
 
     if ( $bid->save() ) {
       return Redirect::to( '/' )->with( 'success', trans( 'bid.msg_bid_successfully' ) );
