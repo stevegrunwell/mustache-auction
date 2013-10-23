@@ -9,6 +9,7 @@
 @show
 <link href="{{ asset( 'css/app.css' ) }}" type="text/css" rel="stylesheet" media="all" />
 <script src="{{ asset( 'js/modernizr.min.js' ) }}"></script>
+<link href="{{ asset( 'favicon.ico' ) }}" rel="shortcut icon" />
 @if ( $ga_profile = Config::get( 'mustache.ga_profile_id' ) )
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
