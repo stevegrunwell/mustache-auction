@@ -2,7 +2,7 @@
 
 return array(
 
-  'appname' => 'Mustache',
+  'appname' => 'Mustache Auction',
 
   // Navigation
   'nav_about' => 'About',

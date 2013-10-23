@@ -23,6 +23,9 @@ Route::get( 'logout', 'UserController@logout' );
 // Donations
 Route::get( 'donate', 'BidController@create' );
 
+// Contestant stats
+Route::get( 'mobro/{contestant_id}', 'ContestantController@show' );
+
 // Static pages
 Route::get( 'about', 'HomeController@showAbout' );
 

@@ -16,14 +16,15 @@ jQuery( function ( $ ) {
   // Append an empty #modal container to the body
   $('body').append( modal );
 
-  // Donation links
-  $('#content').on( 'click', 'a.donate-link', function ( e ) {
-    var self = $(this);
-    e.preventDefault();
+  // Donation and statistics links
+  $('#content').on( 'click', 'a.donate-link, a.stats-link', function ( e ) {
+    if ( $(window).width() >= 480 ) {
+      e.preventDefault();
 
-    $.get( self.attr( 'href' ), function ( response ) {
-      modal.html( response ).modal( modalOpts );
-    });
+      $.get( $(this).attr( 'href' ), function ( response ) {
+        modal.html( response ).modal( modalOpts );
+      });
+    }
   });
 
   // .mustache-list links

@@ -15,13 +15,13 @@ a img { border: none; }
 html { font-size: 62.5%; } // Allows us to define rems in base-10
 body { font-family: $fonts_body; @include font-size(14); line-height: 1.5em; color: $body_text_color; }
 header, footer, h1, h2, h3, h4, h5, h6, #site-tagline { font-family: $fonts_headings; }
-h1, h2, h3, h4, h5, h6 { text-rendering: optimizelegibility; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.4em; text-rendering: optimizelegibility; }
 h1, h2, h3 { @include x-rem(margin-bottom, 15); color: #222; }
 h2 { @include font-size(26.5); }
 h1, ol, ul, dl, p, blockquote, .table-wrap { margin-bottom: $block_margin_bottom; }
 ol, ul { margin-left: 1.4em; }
 blockquote { @include x-rem(padding-left, 15); border-left: 5px solid #eee; }
-a { color: #dd3735;
+a { color: $link_color;
   &:link, &:visited, &:hover, &:focus, &:active { text-decoration: none; }
   &:hover, &:focus, &:active { color: #f95856; }
 }
@@ -60,17 +60,7 @@ header { overflow: hidden; padding: 1em 0 3em; }
 #contestant-list { margin-left: 0;
   > li { margin-bottom: $block_margin_bottom; }
   .title { font-style: italic; color: #666; }
-  .amounts {
-    ul { margin-left: 0; }
-    li { float: left; padding: 0 2%; text-align: center; }
-    img { width: 60%; margin: 0 auto; }
-    table { clear: both;
-      img { display: inline-block; max-width: 10%; margin-right: 4%; vertical-align: middle; }
-    }
-  }
-  .bar-graph { position: relative; width: 100%; height: 8em; margin-bottom: .5em;
-    span { position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 100%; text-indent: -9999%; background: blue; }
-  }
+  .amount { font-size: 1.2em; font-weight: bold; }
 }
 body.js {
   #contestant-list {
@@ -78,8 +68,20 @@ body.js {
   }
 }
 
+.contestant-stats {
+  ul { margin-left: 0; }
+  li { float: left; padding: 0 2%; font-size: .8em; text-align: center; }
+  img { width: 60%; margin: 0 auto .5em; }
+  table { clear: both;
+    img { display: inline-block; max-width: 8%; margin-right: 4%; vertical-align: middle; }
+  }
+}
+.bar-graph { position: relative; width: 100%; height: 8em; margin-bottom: 1em;
+  span { position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 100%; text-indent: -9999%; background: $link_color; }
+}
+
 /* Tables */
-table {
+table { min-width: 100%;
   th, td { padding: .3em .75em; text-align: left; }
   th {
     &.amount, &.percentage { text-align: center; }
@@ -89,6 +91,7 @@ table {
   }
   tbody tr:first-child td { border-color: #000; }
 }
+.table-wrap { width: 100%; max-width: 100%; overflow: auto; }
 
 /* Forms */
 input, textarea, select { display: block; width: 100%; }
@@ -113,6 +116,12 @@ html.js {
   .mustache-id { display: none; }
 }
 
+.actions { margin-left: 0; font-family: $fonts_headings; font-size: 1.1em; font-weight: bold;
+  li { display: inline-block; margin-right: 2em;
+    &:last-child { margin-right: 0; }
+  }
+}
+
 /* Flashes */
 .flash { display: block; margin: 0 0 $block_margin_bottom; padding: .5em 1em; color: $notice_color; background: $notice_bg_color; border: 1px solid; border-radius: $input_border_radius;
   &.success { color: $success_color; background: $success_bg_color; }
@@ -120,8 +129,8 @@ html.js {
 }
 
 /** Modal */
-#modal { position: relative; max-width: 800px; padding: 2em; background: #fff; display: none;
-  .close-modal { position: absolute; right: 0; top: 0; }
+#modal { position: relative; max-width: 600px; padding: 2em; background: #fff; display: none;
+  .close-modal { position: absolute; right: 1em; top: 1em; font-size: 1.2em; }
   .form-submit:last-child { margin-bottom: 0; }
 }
 
@@ -138,12 +147,16 @@ html.js {
       &:nth-child(2n+1) { clear: left; margin-left: 0; }
     }
   }
+  
+  .contestant-stats {
+    li { font-size: 1em; }
+  }
 }
 
 @media ( min-width: 980px ) {
   #contestant-list {
-    > li { float: left; width: 32%; margin-left: 3%;
-      &:nth-child(2n+1) { clear: none; }
+    > li { float: left; width: 31%; margin-left: 3.5%;
+      &:nth-child(2n+1) { clear: none; margin-left: 3.5%; }
       &:nth-child(3n+1) { clear: left; margin-left: 0; }
     }
   }
