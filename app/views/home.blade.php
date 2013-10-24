@@ -8,6 +8,7 @@
   @foreach ( $contestants as $contestant )
 
     <li>
+      <a href="{{ $contestant->movember_url }}" rel="external"><img src="{{ $contestant->photo }}" alt="{{{ $contestant->name }}}" /></a>
       <h2>{{ $contestant->name }}</h2>
     @if ( $contestant->title )
       <p class="title">{{ $contestant->title }}</p>

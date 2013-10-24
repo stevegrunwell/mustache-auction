@@ -40,6 +40,11 @@ class Contestant extends Eloquent {
     return trans( 'contestant.name_format', array( 'first_name' => $this->first_name, 'last_name' => $this->last_name ) );
   }
 
+  public function getPhotoAttribute() {
+    $default = asset( 'img/avatar-default.jpg' );
+    return ( $this->attributes['photo'] ? $this->attributes['photo'] : $default );
+  }
+
   public function getTotalRaisedAttribute() {
     return DB::table( 'bids' )->where( 'contestant_id', $this->id )->sum( 'amount' );
   }
