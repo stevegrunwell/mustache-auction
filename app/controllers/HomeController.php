@@ -16,7 +16,7 @@ class HomeController extends BaseController {
   */
 
   public function index() {
-    return View::make( 'home' )->with( 'contestants', Contestant::all() );
+    return View::make( 'home' )->with( 'contestants', Contestant::orderBy( 'first_name' )->get() );
   }
 
   public function showAbout() {
