@@ -4,13 +4,13 @@ This app was built as a fundraiser for the 2013 [Buckeye Interactive Movember te
 
 ## How does it work?
 
-Team members agree to auction their mustache style off to help raise money for the cause. Users can pledge money to any of the mustache choices (or, if you\'re feeling generous, put your money on "Mo' Bro's Choice" and cut him some slack). At the end of the auction period each man will [attempt to] grow the mustache style that brought in the most money.
+Team members agree to auction their mustache style off to help raise money for the cause. Users can pledge money to any of the mustache choices (or, if you're feeling generous, put your money on "Mo' Bro's Choice" and cut him some slack). At the end of the auction period each man will [attempt to] grow the mustache style that brought in the most money.
 
 No actual money is exchanged at the time pledges are made but each Mo' Bro will receive a list of totals for each donor; he will contact the users via email to arrange payments through his Movember.com profile page. Users may also view their pledge history at any time by visiting your account settings page.
 
 ## About Movember
 
-Movember is a month-long event to raise awareness of and money for men's health issues, including prostate and testicular cancers. Men ("Mo' Bros") grow out mustaches as they and the women in their lives ("Mo' Sistas") raise money for men\'s health-related charities. You can learn more about Movember and the Movember Foundation at [movember.com](http://us.movember.com/about)</a>.
+Movember is a month-long event to raise awareness of and money for men's health issues, including prostate and testicular cancers. Men ("Mo' Bros") grow out mustaches as they and the women in their lives ("Mo' Sistas") raise money for men's health-related charities. You can learn more about Movember and the Movember Foundation at [movember.com](http://us.movember.com/about)</a>.
 
 ## Credits
 
