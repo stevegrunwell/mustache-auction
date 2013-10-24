@@ -9,7 +9,7 @@ class Bid extends Eloquent {
   protected $table = 'bids';
 
   public function contestant() {
-    return $this->belongsTo( 'contestant' );
+    return $this->belongsTo( 'Contestant' );
   }
 
   public function getCreatedAtAttribute() {
@@ -27,7 +27,7 @@ class Bid extends Eloquent {
   }
 
   public function user() {
-    return $this->belongsTo( 'user' );
+    return $this->belongsTo( 'User' );
   }
 
   public static function getValidationRules( $form='edit' ) {
