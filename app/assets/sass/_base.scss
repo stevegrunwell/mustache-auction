@@ -34,8 +34,7 @@ img { display: block; max-width: 100%; margin: 0 auto; }
 .clear, .clearfix:after { clear: both; }
 
 /** Structure */
-body { padding: 0 3%; }
-#wrapper, footer { clear: both; min-width: 320px; max-width: 1200px; margin: 0 auto; }
+#wrapper, footer { clear: both; min-width: 320px; max-width: 1200px; margin: 0 auto; padding: 0 3%; }
 
 /** Header and footer */
 header { overflow: hidden; padding: 1em 0 3em; }
