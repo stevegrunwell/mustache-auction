@@ -27,6 +27,8 @@ return array(
   'change_password_body' => 'If you would like to change your password please enter a new one here:',
   'login_form_title' => 'Login',
   'login_form_submit' => 'Login',
+  'login_to_bid' => 'You must be logged in in order to bid.',
+  'login_create_account' => 'Don\'t have an account? <a href=":signup_link">Sign up for free!</a>',
   'signup_or_login_title' => 'Register or login',
   'already_registered_title' => 'Already registered?',
   'already_registered_body' => 'Sign into your account.',

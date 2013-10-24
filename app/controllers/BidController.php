@@ -4,6 +4,9 @@ class BidController extends BaseController {
 
   public function create() {
     $contestant = Contestant::find( Input::get( 'contestant_id' ) );
+    if ( ! Auth::check() ) {
+      return View::make( ( Request::ajax() ? 'user.login-ajax' : 'user.create' ) );
+    }
     return View::make( ( Request::ajax() ? 'bid.create-ajax' : 'bid.create' ) )->with( 'contestant', $contestant );
   }
 

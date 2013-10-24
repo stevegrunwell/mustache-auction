@@ -105,7 +105,9 @@ label { font-weight: bold;
 
 .form-list, .form-submit { max-width: 500px; overflow: hidden; margin-left: 0; }
 .form-list {
-  li { margin-bottom: 1em; }
+  li { margin-bottom: 1em;
+    &:last-child { margin-bottom: 0; }
+  }
 }
 
 .mustache-list { display: none; }
@@ -136,9 +138,8 @@ html.js {
 }
 
 /** Modal */
-#modal { position: relative; max-width: 600px; padding: 2em; background: #fff; display: none;
+#modal { position: relative; max-width: 600px; padding: 2em 2em (2em - $block_margin_bottom); background: #fff; display: none;
   .close-modal { position: absolute; right: 1em; top: 1em; font-size: 1.2em; }
-  .form-submit:last-child { margin-bottom: 0; }
 }
 
 /** Media queries */
