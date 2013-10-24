@@ -31,6 +31,9 @@
           {{ Form::label( 'password', trans( 'user.password' ), [ 'class' => 'required' ] ) }}
           {{ Form::password( 'password' ) }}
         </li>
+        <li>
+          <label for="accept_terms" class="required inline terms">{{ Form::checkbox( 'accept_terms' ) }} {{ trans( 'user.accept_terms' ) }}</label>
+        </li>
       </ul>
 
       <p class="form-submit">{{ Form::submit( trans( 'user.create_form_submit' ) ) }}</p>

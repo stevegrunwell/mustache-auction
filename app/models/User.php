@@ -87,6 +87,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     } elseif ( $form == 'create' ) {
       $rules['password'] = 'required|min:6';
+      $rules['accept_terms'] = 'accepted';
     }
     return $rules;
   }

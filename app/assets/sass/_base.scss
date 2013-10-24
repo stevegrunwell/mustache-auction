@@ -95,12 +95,18 @@ table { min-width: 100%;
 
 /* Forms */
 input, textarea, select { display: block; width: 100%; }
+input[type="checkbox"] { display: inline-block; width: auto; margin-right: .5em; }
 input[type="submit"], button, .button { float: right; width: auto; }
 label { font-weight: bold;
   &.required:after { content: '*'; padding-left: .25em; color: $error_color; }
+  &.inline { font-weight: normal; }
+  &.terms { font-size: .8em; }
 }
 
 .form-list, .form-submit { max-width: 500px; overflow: hidden; margin-left: 0; }
+.form-list {
+  li { margin-bottom: 1em; }
+}
 
 .mustache-list { display: none; }
 html.js {
@@ -148,7 +154,7 @@ html.js {
       &:nth-child(2n+1) { clear: left; margin-left: 0; }
     }
   }
-  
+
   .contestant-stats {
     li { font-size: 1em; }
   }
