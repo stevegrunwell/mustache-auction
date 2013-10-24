@@ -10,6 +10,11 @@
 <link href="{{ asset( 'css/app.css' ) }}" type="text/css" rel="stylesheet" media="all" />
 <script src="{{ asset( 'js/modernizr.min.js' ) }}"></script>
 <link href="{{ asset( 'favicon.ico' ) }}" rel="shortcut icon" />
+<meta property="og:title" content="{{ trans( 'global.appname' ) }}" />
+<meta property="og:description" content="{{ trans( 'global.site_description' ) }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ url( '/' ) }}" />
+<meta property="og:image" content="{{ asset( 'img/opengraph.jpg' ) }}" />
 @if ( $ga_profile = Config::get( 'mustache.ga_profile_id' ) )
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
