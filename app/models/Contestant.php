@@ -44,6 +44,10 @@ class Contestant extends Eloquent {
     return DB::table( 'bids' )->where( 'contestant_id', $this->id )->sum( 'amount' );
   }
 
+  public function getTwitterUrlAttribute() {
+    return ( $this->attributes['twitter_handle'] ? sprintf( 'https://twitter.com/%s', $this->twitter_handle ) : '' );
+  }
+
   /**
    * Return all mustache styles in an array ( id => name )
    * @param bool $with_empty Include a "Select..."-type option at the beginning?
