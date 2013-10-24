@@ -1,6 +1,9 @@
 @extends( 'layouts.base' )
 
-@section( 'title', trans( 'global.appname' ) )
+@section( 'document-title' )
+  <title>{{ trans( 'global.appname' ) . ' | ' . strip_tags( trans( 'global.tagline' ) ) }}</title>
+  <meta name="description" content="{{{ trans( 'global.site_description' ) }}}" />
+@stop
 
 @section( 'body' )
 
