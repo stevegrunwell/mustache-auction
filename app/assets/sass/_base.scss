@@ -42,7 +42,7 @@ header { overflow: hidden; padding: 1em 0 3em; }
 #user-nav, #footer-nav { text-transform: uppercase;
   $nav_padding: .5em;
   ul { margin-left: 0; }
-  li { float: left; display: inline-block; padding-right: $nav_padding;
+  li { float: left; display: inline-block; padding-right: $nav_padding; line-height: 1em;
     + li { padding-left: $nav_padding; border-left: 1px solid; }
     &:last-child { padding-right: 0; }
   }
@@ -50,8 +50,7 @@ header { overflow: hidden; padding: 1em 0 3em; }
 #user-nav { float: right;
   .welcome { font-weight: bold; }
 }
-
-#footer-nav { overflow: hidden; margin-top: 2em; padding: .5em 0 1em; border-top: 2px solid #000; }
+#footer-nav { overflow: hidden; margin-top: 2em; padding: 1em 0; font-size: .8em; border-top: 2px solid #000; }
 
 /** Content styles */
 #content { clear: both; }
