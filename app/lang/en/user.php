@@ -7,6 +7,7 @@ return array(
   'navigation_profile' => 'My account',
   'navigation_logout' => 'Logout',
   'hello_firstname' => 'Hello, :first_name',
+  'forgot_password_link' => 'Forgot password?',
 
   // Fields
   'email' => 'Email address',
@@ -32,6 +33,13 @@ return array(
   'signup_or_login_title' => 'Register or login',
   'already_registered_title' => 'Already registered?',
   'already_registered_body' => 'Sign into your account.',
+  'forgot_password_title' => 'Forgot your password?',
+  'forgot_password_body' => "No sweat. Enter your account email address and we'll send you a link to reset your password.",
+  'forgot_password_email_sent' => 'An email has been sent to :email with instructions how how to reset your password.',
+  'forgot_password_btn' => 'Send password reset',
+  'reset_password_title' => 'Reset your password',
+  'reset_password_body' => 'Enter your account email address and a new password in order to access your account.',
+  'reset_password_btn' => 'Reset password',
 
   // Messaging
   'msg_welcome_new_user' => 'Welcome to Mustache!',
@@ -39,6 +47,7 @@ return array(
   'msg_logout_successful' => 'You have been logged out successfully',
   'msg_account_update_successful' => 'Your account has been updated successfully',
   'msg_account_update_error' => 'There was an error updating your account!',
+  'msg_password_reset_successful' => 'Your password has been reset succcessfully!',
 
   // Reporting
   'no_bids' => 'You have not made any donations yet.',

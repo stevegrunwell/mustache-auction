@@ -19,6 +19,10 @@ Route::post( 'join', 'UserController@store' );
 Route::get( 'login', 'UserController@showLogin' );
 Route::post( 'login', 'UserController@login' );
 Route::get( 'logout', 'UserController@logout' );
+Route::get( 'forgot-password', 'UserController@showForgotPassword' );
+Route::post( 'forgot-password', 'UserController@forgotPassword' );
+Route::get( 'reset-password/{token}', 'UserController@showResetPassword' );
+Route::post( 'reset-password/{token}', 'UserController@resetPassword' );
 
 // Donations
 Route::get( 'donate', 'BidController@create' );

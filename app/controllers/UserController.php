@@ -88,6 +88,32 @@ class UserController extends BaseController {
     }
   }
 
+  public function showForgotPassword() {
+    return View::make( 'user.forgot-password' )->with( 'email', Input::get( 'email' ) );
+  }
+
+  public function forgotPassword() {
+    $email = Input::get( 'email' );
+    Session::flash( 'email', $email );
+    return Password::remind( array( 'email' => $email ), function ( $message, $user ) {
+      $message->subject( trans( 'email/forgotpassword.subject', [ 'appname' => trans( 'global.appname' ) ] ) );
+    });
+  }
+
+  public function showResetPassword( $token ) {
+    return View::make( 'user.reset-password' )->with( array( 'token' => $token, 'email' => Input::get( 'email' ) ) );
+  }
+
+  public function resetPassword() {
+    return Password::reset( array( 'email' => Input::get( 'email' ) ), function ( $user, $password ) {
+      $user->password = $password;
+      $user->save();
+      if ( Auth::attempt( [ 'email' => $user->email, 'password' => $password ], true ) ) {
+        return Redirect::to( '/' )->with( 'success', trans( 'user.msg_password_reset_successful' ) );
+      }
+    });
+  }
+
   public function logout() {
     Auth::logout();
     return Redirect::to( '/' )->with( 'success', trans( 'user.msg_logout_successful' ) );

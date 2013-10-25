@@ -105,6 +105,8 @@ label { font-weight: bold;
   }
 }
 
+a.forgot-password { float: left; }
+
 .mustache-list { display: none; }
 html.js {
   .mustache-list { display: block; max-width: 500px; margin-left: 0; text-align: center;

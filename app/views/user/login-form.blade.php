@@ -12,6 +12,8 @@
       {{ Form::password( 'password' ) }}
     </li>
   </ul>
+  
+  {{ link_to_action( 'UserController@showForgotPassword', trans( 'user.forgot_password_link' ), null, [ 'class' => 'forgot-password' ] ) }}
 
   <p class="form-submit">{{ Form::submit( trans( 'user.login_form_submit' ) ) }}</p>
 
