@@ -10,6 +10,7 @@
 <link href="{{ asset( 'css/app.css' ) }}" type="text/css" rel="stylesheet" media="all" />
 <!--[if lte IE 8]>
   <link href="{{ asset( 'css/ie8.css' ) }}" type="text/css" rel="stylesheet" media="all" />
+  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 <![endif]-->
 <script src="{{ asset( 'js/modernizr.min.js' ) }}"></script>
 <link href="{{ asset( 'favicon.ico' ) }}" rel="shortcut icon" />
