@@ -8,6 +8,9 @@
 <title>@yield( 'title' ) . ' | ' . trans( 'global.appname' )</title>
 @show
 <link href="{{ asset( 'css/app.css' ) }}" type="text/css" rel="stylesheet" media="all" />
+<!--[if lte IE 8]>
+  <link href="{{ asset( 'css/ie8.css' ) }}" type="text/css" rel="stylesheet" media="all" />
+<![endif]-->
 <script src="{{ asset( 'js/modernizr.min.js' ) }}"></script>
 <link href="{{ asset( 'favicon.ico' ) }}" rel="shortcut icon" />
 <meta property="og:title" content="{{ trans( 'global.appname' ) }}" />
