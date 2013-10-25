@@ -34,7 +34,7 @@ Route::get( 'mobro/{contestant_id}', 'ContestantController@show' );
 Route::get( 'about', 'HomeController@showAbout' );
 
 // Everything in here requires the user to be logged in
-Route::group( [ 'before' => 'auth|ssl' ], function () {
+Route::group( [ 'before' => 'auth' ], function () {
 
   Route::get( 'account', 'UserController@edit' );
   Route::put( 'account', 'UserController@update' );
@@ -42,3 +42,11 @@ Route::group( [ 'before' => 'auth|ssl' ], function () {
   Route::post( 'donate', 'BidController@store' );
 
 });
+
+// Error pages
+if ( ! Config::get( 'app.debug' ) ) {
+  App::error( function ( $exception, $code ) {
+    $custom_pages = array( 404 );
+    return Response::view( 'errors.show', array( 'code' => ( in_array( $code, $custom_pages ) ? $code : 'default' ) ), $code );
+  });
+}
