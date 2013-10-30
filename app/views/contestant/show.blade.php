@@ -9,7 +9,7 @@
   <p class="title">{{ $contestant->title }}</p>
 @endif
 
-@if ( Bid::isAuctionOpen() )
+@if ( Auction::isOpen() )
   <p>{{ link_to_action( 'BidController@create', trans( 'bid.bid_button' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'donate-link btn' ] ) }}</p>
 @endif
 

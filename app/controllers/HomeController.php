@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
   public function index() {
     $data = array(
-      'auction_open' => Bid::isAuctionOpen(),
+      'auction_open' => Auction::isOpen(),
       'contestants' => Contestant::orderBy( 'first_name' )->get()
     );
     return View::make( 'home' )->with( $data );

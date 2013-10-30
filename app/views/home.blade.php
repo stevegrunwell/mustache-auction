@@ -7,12 +7,21 @@
 
 @section( 'body' )
 
+  @if ( ! Auth::check() )
+    <h2>{{ trans( 'static/home.title' ) }}</h2>
+    {{ trans( 'static/home.content', [ 'login_link' => action( 'UserController@create' ) ] ) }}
+    @if ( $ends_at = Auction::closesAt() )
+      {{ trans( 'static/home.ends_at', [ 'ends_at' => Auction::closesAt() ] ) }}
+    @endif
+  @endif
+
+  <h2>{{ trans( 'contestant.list_title' ) }}</h2>
   <ul id="contestant-list" class="clearfix">
   @foreach ( $contestants as $contestant )
 
     <li>
       <a href="{{ $contestant->movember_url }}" rel="external"><img src="{{ $contestant->photo }}" alt="{{{ $contestant->name }}}" /></a>
-      <h2>{{ $contestant->name }}</h2>
+      <h3>{{ $contestant->name }}</h3>
     @if ( $contestant->title )
       <p class="title">{{ $contestant->title }}</p>
     @endif

@@ -9,6 +9,7 @@ return array(
   'view_stats_btn' => 'View stats',
 
   // Display
+  'list_title' => "Our Mo' Bros",
   'show_title' => ':first_name :last_name',
   'stats_title' => 'Statistics for :first_name :last_name',
   'stats_title_short' => 'Current standings',

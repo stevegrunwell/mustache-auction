@@ -1,4 +1,4 @@
-@if ( Bid::isAuctionOpen() )
+@if ( Auction::isOpen() )
 
   {{ Form::open( [ 'action' => 'BidController@create' ] ) }}
 
@@ -38,6 +38,6 @@
 
 @else
 
-  <p>{{ trans( 'bid.msg_auction_closed' ) }}</p>
+  <p>{{ trans( 'auction.msg_auction_closed' ) }}</p>
 
 @endif

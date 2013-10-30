@@ -32,8 +32,8 @@
 @endif
 </head>
 <body>
-  @if ( ! Bid::isAuctionOpen() )
-    <p class="global-notice">{{ trans( 'bid.msg_global_auction_closed' ) }}</p>
+  @if ( ! Auction::isOpen() )
+    <p class="global-notice">{{ trans( 'auction.msg_global_auction_closed' ) }}</p>
   @endif
   <div id="wrapper">
     @include( 'layouts.header' )
