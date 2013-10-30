@@ -19,6 +19,7 @@ class UserController extends BaseController {
     $user->password = $password;
     $user->first_name = Input::get( 'first_name' );
     $user->last_name = Input::get( 'last_name' );
+    $user->accept_terms = Input::get( 'accept_terms' );
 
     if ( $user->save() ) {
       // Auto-login the user
