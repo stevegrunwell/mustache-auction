@@ -83,7 +83,7 @@ class UserController extends BaseController {
         return Redirect::to( '/' );
 
       } else {
-        return Redirect::to( 'login' )->with( 'error', trans( 'forms.login_failure' ) )->withInput( Input::except( 'password' ) );
+        return Redirect::to( 'login' )->with( 'error', trans( 'user.msg_login_failure' ) )->withInput( Input::except( 'password' ) );
       }
     }
   }

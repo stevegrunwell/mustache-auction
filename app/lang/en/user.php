@@ -48,6 +48,7 @@ return array(
   'msg_account_update_successful' => 'Your account has been updated successfully',
   'msg_account_update_error' => 'There was an error updating your account!',
   'msg_password_reset_successful' => 'Your password has been reset succcessfully!',
+  'msg_login_failure' => 'Incorrect email/password combination',
 
   // Reporting
   'no_bids' => 'You have not made any donations yet.',
