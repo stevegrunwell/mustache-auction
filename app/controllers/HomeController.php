@@ -16,7 +16,11 @@ class HomeController extends BaseController {
   */
 
   public function index() {
-    return View::make( 'home' )->with( 'contestants', Contestant::orderBy( 'first_name' )->get() );
+    $data = array(
+      'auction_open' => Bid::isAuctionOpen(),
+      'contestants' => Contestant::orderBy( 'first_name' )->get()
+    );
+    return View::make( 'home' )->with( $data );
   }
 
   public function showAbout() {

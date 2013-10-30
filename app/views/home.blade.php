@@ -19,7 +19,9 @@
       <p class="amount">{{ trans( 'contestant.amount_raised', [ 'amount' => BidHelper::format_amount( $contestant->total_raised ) ] ) }}</p>
       <ul class="actions">
         <li>{{ link_to_action( 'ContestantController@show', trans( 'contestant.view_stats_btn' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'stats-link btn' ] ) }}</a></li>
+      @if ( $auction_open )
         <li>{{ link_to_action( 'BidController@create', trans( 'bid.bid_button' ), [ 'contestant_id' => $contestant->id ], [ 'class' => 'donate-link btn' ] ) }}</li>
+      @endif
       </ul>
     </li>
 

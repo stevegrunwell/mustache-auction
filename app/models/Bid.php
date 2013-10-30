@@ -30,6 +30,17 @@ class Bid extends Eloquent {
     return $this->belongsTo( 'User' );
   }
 
+  /**
+   * Is the auction open?
+   * @return bool
+   */
+  public static function isAuctionOpen() {
+    if ( $end_date = Config::get( 'mustache.auction_ends_at' ) ) {
+      return ( Carbon::now()->lt( new Carbon( $end_date ) ) );
+    }
+    return true;
+  }
+
   public static function getValidationRules( $form='edit' ) {
     return array(
       'contestant_id' => 'required|exists:contestants,id',

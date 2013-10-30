@@ -128,10 +128,12 @@ html.js {
 .btn { font-family: $fonts_headings; font-size: 1.1em; font-weight: bold; }
 
 /* Flashes */
-.flash { display: block; margin: 0 0 $block_margin_bottom; padding: .5em 1em; color: $notice_color; background: $notice_bg_color; border: 1px solid; border-radius: $input_border_radius;
+.global-notice, .flash { display: block; padding: .5em 1em; color: $notice_color; background: $notice_bg_color;
   &.success { color: $success_color; background: $success_bg_color; }
   &.error { color: $error_color; background: $error_bg_color; }
 }
+.flash { margin: 0 0 $block_margin_bottom; border: 1px solid; border-radius: $input_border_radius; }
+.global-notice { width: 100%; margin-bottom: 1em; text-align: center; border-bottom: 1px solid; }
 
 /** Modal */
 #modal { position: relative; max-width: 600px; padding: 2em 2em (2em - $block_margin_bottom); background: #fff; display: none;
