@@ -10,3 +10,7 @@
 @media ( min-width: 980px ) {
   @import '980';
 }
+
+@media print {
+  @import 'print';
+}

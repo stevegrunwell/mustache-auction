@@ -1,3 +1,4 @@
+/* Careful, we're currently importing this whole partial into both app.scss *and* _print.scss! */
 #contestant-list {
   > li { float: left; width: 31%; margin-left: 3.5%;
     &:nth-child(2n+1) { clear: none; margin-left: 3.5%; }

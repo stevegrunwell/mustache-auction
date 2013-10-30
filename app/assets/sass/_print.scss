@@ -1,0 +1,6 @@
+/* Hide these elements */
+nav, #modal, .actions { display: none !important; }
+
+#site-logo { float: right; max-width: 30%; }
+
+@import '980';
