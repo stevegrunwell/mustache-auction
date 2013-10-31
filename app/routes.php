@@ -43,10 +43,18 @@ Route::group( [ 'before' => 'auth' ], function () {
 
 });
 
+// Reports
+Route::group( [ 'before' => 'auth|admin' ], function () {
+
+  Route::get( 'reports', 'ReportController@index' );
+  Route::get( 'reports/contestant-totals/{contestant_id}', 'ReportController@contestantTotals' );
+
+});
+
 // Error pages
 if ( ! Config::get( 'app.debug' ) ) {
   App::error( function ( $exception, $code ) {
-    $custom_pages = array( 404 );
+    $custom_pages = array( 401, 404 );
     return Response::view( 'errors.show', array( 'code' => ( in_array( $code, $custom_pages ) ? $code : 'default' ) ), $code );
   });
 }

@@ -78,3 +78,12 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/**
+ * Ensure the user is an administrator
+ */
+Route::filter( 'admin', function () {
+  if ( ! Auth::user()->is_admin ) {
+    App::abort( 401, trans( 'errors.401_title' ) );
+  }
+});

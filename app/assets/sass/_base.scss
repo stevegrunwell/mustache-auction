@@ -75,6 +75,9 @@ header { overflow: hidden; padding: 1em 0 3em; }
   span { position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 100%; text-indent: -9999%; background: $link_color; }
 }
 
+.report-list { list-style-type: disc; }
+.report-generated-timestamp { font-style: italic; color: #666; }
+
 /* Tables */
 table { min-width: 100%;
   th, td { padding: .3em .75em; text-align: left; }
@@ -85,6 +88,17 @@ table { min-width: 100%;
     &.amount, &.percentage { text-align: right; }
   }
   tbody tr:first-child td { border-color: #000; }
+  tfoot {
+    .totals { font-weight: bold;
+      td { text-align: right; }
+    }
+  }
+
+  .table-wrap { margin: 0; }
+  &.bids { min-width: 0; font-size: .86em;
+    thead { @extend .screen-reader-text; }
+    th, td { border: none; }
+  }
 }
 .table-wrap { width: 100%; max-width: 100%; overflow: auto; }
 

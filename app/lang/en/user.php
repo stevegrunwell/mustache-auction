@@ -53,4 +53,7 @@ return array(
   // Reporting
   'no_bids' => 'You have not made any donations yet.',
 
+  // Formats
+  'full_name' => ':first_name :last_name',
+
 );

@@ -23,6 +23,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
    * @var array
    */
   protected $hidden = array( 'password' );
+  
+  /**
+   * Get the amount this user has bid on a given contestant
+   */
+  public function totalAmountBidOnContestant( $contestant_id ) {
+    return DB::table( 'bids' )
+      ->where( 'user_id', '=', $this->id )
+      ->where( 'contestant_id', '=', $contestant_id )
+      ->sum( 'amount' );
+  }
 
   /**
    * Get the unique identifier for the user.
@@ -44,6 +54,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
   public function bids() {
     return $this->hasMany( 'Bid' );
+  }
+
+  public function getNameAttribute() {
+    return trans( 'user.full_name', array( 'first_name' => $this->first_name, 'last_name' => $this->last_name ) );
   }
 
   /**

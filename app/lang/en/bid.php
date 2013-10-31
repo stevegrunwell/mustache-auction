@@ -20,6 +20,7 @@ return array(
   // Formats
   'amount_format' => '$:amount',
   'date_format' => 'M d, Y',
+  'date_format_with_time' => 'M d, Y \a\t g:ia',
   'percentage_format' => ':percentage%',
 
   // Reports

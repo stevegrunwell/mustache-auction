@@ -16,27 +16,30 @@
   @endforeach
   </ul>
 
-  <table>
-    <thead>
-      <tr>
-        <th>{{ trans( 'mustache.table_header_mustache' ) }}</th>
-        <th class="amount">{{ trans( 'mustache.table_header_amount' ) }}</th>
-        <th class="percentage">{{ trans( 'mustache.table_header_percentage' ) }}</th>
-      </tr>
-    </thead>
-    <tbody>
-    @foreach ( $contestant->mustaches as $mustache )
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>{{ trans( 'mustache.table_header_mustache' ) }}</th>
+          <th class="amount">{{ trans( 'mustache.table_header_amount' ) }}</th>
+          <th class="percentage">{{ trans( 'mustache.table_header_percentage' ) }}</th>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach ( $contestant->mustaches as $mustache )
 
-      <tr>
-        <td><img src="{{ $mustache['image'] }}" alt="" /> {{ $mustache['name'] }}</td>
-        <td class="amount">{{ BidHelper::format_amount( $mustache['total'] ) }}</td>
-        <td class="percentage">{{ BidHelper::format_percentage( $mustache['percentage'] ) }}</td>
-      </tr>
+        <tr>
+          <td><img src="{{ $mustache['image'] }}" alt="" /> {{ $mustache['name'] }}</td>
+          <td class="amount">{{ BidHelper::format_amount( $mustache['total'] ) }}</td>
+          <td class="percentage">{{ BidHelper::format_percentage( $mustache['percentage'] ) }}</td>
+        </tr>
 
-    @endforeach
-    </tbody>
-  </table>
-</div><!-- .amounts -->
+      @endforeach
+      </tbody>
+    </table>
+  </div><!-- .table-wrap -->
+
+</div><!-- .contestant-stats -->
 
 @else
 

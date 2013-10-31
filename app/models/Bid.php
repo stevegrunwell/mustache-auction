@@ -22,6 +22,11 @@ class Bid extends Eloquent {
     return $date->toISO8601String();
   }
 
+  public function getDateAttribute() {
+    $date = new Carbon( $this->attributes['created_at'] );
+    return $date->format( trans( 'bid.date_format_with_time' ) );
+  }
+
   public function getMustacheAttribute() {
     return Mustache::find( $this->attributes['mustache_id'] );
   }

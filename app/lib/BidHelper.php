@@ -19,10 +19,14 @@ class BidHelper {
    * Take a float, format it according to the localization (products.price_format), round it to
    * two digits, and return it as a string
    * @param float $amount The amount to format
+   * @param bool $strip_empty_digits Remove the decimal and cents when we have a whole dollar amount (e.g. $50 vs $50.00)?
    * @return str
    */
-  public static function format_amount( $amount ) {
-    $amount = preg_replace( '/\.00$/', '', number_format( $amount, 2 ) );
+  public static function format_amount( $amount, $strip_empty_digits=true ) {
+    $amount = number_format( $amount, 2 );
+    if ( $strip_empty_digits ) {
+      $amount = preg_replace( '/\.00$/', '', $amount );
+    }
     return trans( 'bid.amount_format', array( 'amount' => $amount ) );
   }
 

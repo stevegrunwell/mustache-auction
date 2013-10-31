@@ -10,6 +10,21 @@ class Contestant extends Eloquent {
     return $this->hasMany( 'Bid' );
   }
 
+  /**
+   * Return bids grouped by the User who made them
+   */
+  public function getBiddersAttribute() {
+    $contestant_id = $this->id;
+    return User::join( 'bids', 'bids.user_id', '=', 'users.id' )
+      ->select( 'users.*' )
+      ->where( 'bids.contestant_id', '=', $this->id )
+      ->with( array( 'bids' => function ( $query ) use ( $contestant_id ) {
+        return $query->where( 'contestant_id', '=', $contestant_id );
+      } ) )
+      ->groupBy( 'users.id' )
+      ->get();
+  }
+
   public function getMustachesAttribute() {
     $bids = array();
     $totals = array();
