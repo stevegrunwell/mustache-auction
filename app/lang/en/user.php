@@ -16,7 +16,8 @@ return array(
   'last_name' => 'Last name',
   'new_password' => 'New password',
   'confirm_password' => 'Confirm new password',
-  'accept_terms' => 'I agree to pay any pledges made, regardless of whether or not my selected mustache style(s) win(s), upon the conclusion of the auction period ending :date',
+  'accept_terms' => 'I agree to pay any pledges made, regardless of whether or not my selected mustache style(s) win(s), upon the conclusion of the auction period.',
+  'accept_terms_with_date' => 'I agree to pay any pledges made, regardless of whether or not my selected mustache style(s) win(s), upon the conclusion of the auction period ending :date.',
 
   // Forms
   'create_form_title' => 'Sign up!',
