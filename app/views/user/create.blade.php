@@ -32,7 +32,13 @@
           {{ Form::password( 'password' ) }}
         </li>
         <li>
-          <label for="accept_terms" class="required inline terms">{{ Form::checkbox( 'accept_terms', 1, null, [ 'id' => 'accept_terms' ] ) }} {{ trans( 'user.accept_terms' ) }}</label>
+          <label for="accept_terms" class="required inline terms">
+          @if ( $end_date = Auction::closesAt() )
+            {{ Form::checkbox( 'accept_terms', 1, null, [ 'id' => 'accept_terms' ] ) }} {{ trans( 'user.accept_terms_with_date', [ 'date' => $end_date ] ) }}
+          @else
+            {{ Form::checkbox( 'accept_terms', 1, null, [ 'id' => 'accept_terms' ] ) }} {{ trans( 'user.accept_terms' ) }}
+          @endif
+          </label>
         </li>
       </ul>
 
