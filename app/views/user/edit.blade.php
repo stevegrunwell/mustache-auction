@@ -46,6 +46,11 @@
   </div><!-- .col -->
 
   <div id="bidding-history" class="col">
+  @if ( $user->is_admin )
+    <h2>{{ trans( 'reports.profile_title' ) }}</h2>
+    <p>{{ trans( 'reports.profile_body', [ 'link' => action( 'ReportController@index' ) ] ) }}</p>
+  @endif
+
     <h2>{{ trans( 'bid.history_title' ) }}</h2>
   @if ( $user->bids )
     <div class="table-wrap">

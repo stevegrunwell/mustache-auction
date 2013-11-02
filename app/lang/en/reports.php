@@ -9,6 +9,10 @@ return array(
   // Reports index
   'index_title' => 'Reports',
 
+  // Link on the "My Profile" page
+  'profile_title' => 'Reports',
+  'profile_body' => 'Hey, you\'re an admin. Neat! Want to <a href=":link">view the reports?</a>',
+
   // Contestant totals
   'contestant_totals' => "Pledges by Mo' Bro",
   'contestant_totals_title' => 'Pledges for :first_name :last_name',
