@@ -13,6 +13,8 @@
     @if ( $ends_at = Auction::closesAt() )
       {{ trans( 'static/home.ends_at', [ 'ends_at' => Auction::closesAt() ] ) }}
     @endif
+    <h2>{{ trans( 'static/home.causes_title' ) }}</h2>
+    {{ trans( 'static/home.causes_content' ) }}
   @endif
 
   <h2>{{ trans( 'contestant.list_title' ) }}</h2>
