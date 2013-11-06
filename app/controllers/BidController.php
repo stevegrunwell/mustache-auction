@@ -28,6 +28,7 @@ class BidController extends BaseController {
     $bid->amount = $input['amount'];
 
     if ( $bid->save() ) {
+      $bid->sendNotificationEmail();
       return Redirect::to( '/' )->with( 'success', trans( 'bid.msg_bid_successfully' ) );
     } else {
       return Redirect::back()->with( 'error', trans( 'bid.msg_bid_error' ) );

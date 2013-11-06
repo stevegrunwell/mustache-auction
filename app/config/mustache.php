@@ -23,4 +23,16 @@ return array(
    */
   'auction_ends_at' => false,
 
+  /**
+   * Custom email addresses
+   *
+   * If these email addresses are defined they'll be used instead of the address defined in mail.php
+   *
+   * For each address there's a *_email_address and *_email_name
+   */
+
+  // Alerts get sent when there are new bids
+  'alerts_email_address' => '',
+  'alerts_email_name' => '',
+
 );

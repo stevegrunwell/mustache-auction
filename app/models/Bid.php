@@ -31,6 +31,18 @@ class Bid extends Eloquent {
     return Mustache::find( $this->attributes['mustache_id'] );
   }
 
+  public function sendNotificationEmail() {
+    if ( $this->contestant->email ) {
+      Mail::send( array( 'emails.bid.new', 'emails.bid.new_plain' ), array( 'bid' => $this ), function ( $message ) {
+        if ( $from_email = Config::get( 'mustache.alerts_email_address', false ) ) {
+          $message->from( $from_email, Config::get( 'mustache.alerts_email_name', trans( 'global.appname' ) ) );
+        }
+        $message->to( $this->contestant->email, $this->contestant->name );
+        $message->subject( trans( 'email/bid.new_subject' ) );
+      });
+    }
+  }
+
   public function user() {
     return $this->belongsTo( 'User' );
   }
