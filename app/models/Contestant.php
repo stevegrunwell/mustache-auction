@@ -68,6 +68,24 @@ class Contestant extends Eloquent {
     return ( $this->attributes['twitter_handle'] ? sprintf( 'https://twitter.com/%s', $this->twitter_handle ) : '' );
   }
 
+  public function getWinningMustacheAttribute() {
+    return Mustache::select( DB::raw( 'mustaches.*, SUM(bids.amount) as total' ) )
+      ->join( 'bids', 'bids.mustache_id', '=', 'mustaches.id' )
+      ->where( 'bids.contestant_id', '=', $this->id )
+      ->groupBy( 'mustaches.id' )
+      ->orderBy( 'total', 'desc' )
+      ->first();
+  }
+
+  public function sendTotalsEmail() {
+    if ( $this->contestant->email ) {
+      Mail::send( array( 'emails.reports.contestant_totals', 'emails.reports.contestant_totals_plain' ), array( 'contestant' => $this ), function ( $message ) {
+        $message->to( $this->email, $this->name );
+        $message->subject( trans( 'email/reports.contestant_totals_subject' ) );
+      });
+    }
+  }
+
   /**
    * Return all mustache styles in an array ( id => name )
    * @param bool $with_empty Include a "Select..."-type option at the beginning?
