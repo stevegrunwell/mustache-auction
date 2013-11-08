@@ -101,6 +101,11 @@ table { min-width: 100%;
   }
 }
 .table-wrap { width: 100%; max-width: 100%; overflow: auto; }
+#bidding-history {
+  tfoot {
+    th, td { border-top: 1px solid #000; }
+  }
+}
 
 /* Forms */
 input, textarea, select { display: block; width: 100%; }

@@ -58,19 +58,27 @@
         <thead>
           <tr>
             <th>{{ trans( 'bid.table_date' ) }}</th>
-            <th>{{ trans( 'bid.table_amount' ) }}</th>
             <th>{{ trans( 'bid.table_contestant' ) }}</th>
             <th>{{ trans( 'bid.table_mustache' ) }}</th>
+            <th>{{ trans( 'bid.table_amount' ) }}</th>
           </tr>
         </thead>
+
+        <tfoot>
+          <tr>
+            <th colspan="3" scope="row">{{ trans( 'bid.table_total' ) }}</th>
+            <td class="totals">{{ BidHelper::format_amount( $user->bid_total ) }}</td>
+          </tr>
+        </tfoot>
+
         <tbody>
         @foreach ( $user->bids as $bid )
 
           <tr>
             <td><time title="{{ $bid->created_at_timestamp }}">{{ $bid->created_at }}</time></td>
-            <td>{{ BidHelper::format_amount( $bid->amount ) }}</td>
             <td><a href="{{ $bid->contestant->movember_url }}" rel="external">{{ $bid->contestant->name }}</a></td>
             <td>{{ $bid->mustache->name }}</td>
+            <td>{{ BidHelper::format_amount( $bid->amount ) }}</td>
           </tr>
 
         @endforeach

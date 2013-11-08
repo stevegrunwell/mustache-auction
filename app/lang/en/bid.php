@@ -28,6 +28,7 @@ return array(
   'table_amount' => 'Amount',
   'table_contestant' => "Mo' Bro",
   'table_mustache' => "Mo'",
+  'table_total' => 'Total pledged',
   'history_title' => 'Pledge history',
 
 );

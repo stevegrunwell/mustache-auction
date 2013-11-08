@@ -23,7 +23,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
    * @var array
    */
   protected $hidden = array( 'password' );
-  
+
   /**
    * Get the amount this user has bid on a given contestant
    */
@@ -54,6 +54,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
   public function bids() {
     return $this->hasMany( 'Bid' );
+  }
+
+  public function getBidTotalAttribute() {
+    return Bid::where( 'user_id', '=', $this->id )->sum( 'amount' );
   }
 
   public function getNameAttribute() {
